@@ -1,0 +1,55 @@
+<!-- backend/templates/admin_dashboard.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center">Admin Dashboard</h1>
+        <form id="addContentForm">
+            <div class="form-group">
+                <label for="title">Title</label>
+                <input type="text" class="form-control" id="title" placeholder="Enter title" required>
+            </div>
+            <div class="form-group">
+                <label for="body">Body</label>
+                <textarea class="form-control" id="body" rows="3" placeholder="Enter body" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="instructions">Instructions</label>
+                <textarea class="form-control" id="instructions" rows="3" placeholder="Enter instructions" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Add Content</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('addContentForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+            const title = document.getElementById('title').value;
+            const body = document.getElementById('body').value;
+            const instructions = document.getElementById('instructions').value;
+
+            fetch('/api/lesson', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ title, body, instructions }),
+            })
+            .then(response => {
+                if (response.ok) {
+                    alert('Content added successfully!');
+                    document.getElementById('addContentForm').reset(); // Reset the form
+                } else {
+                    alert('Error adding content');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
