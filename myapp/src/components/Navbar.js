@@ -67,9 +67,9 @@ const Navbar = () => {
           </Link>
         </li>
         <li>
-          <Link to="/community" className="nav-link">
-            <i className="fas fa-users" />
-            <span>Community</span>
+          <Link to="/chatbot" className="nav-link">
+            <i className="fas fa-robot" />
+            <span>Nexis AI</span>
           </Link>
         </li>
         {!isLoggedIn ? (
