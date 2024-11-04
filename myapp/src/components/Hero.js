@@ -409,7 +409,7 @@ const Hero = () => {
 
   // Memoize line numbers
   const lineNumbers = useMemo(
-    () => text.split("\n").map((_, i) => <span key={i}>{i + 1}</span>),
+    () => text.split("\n").map((_, i) => (<span key={i}>{i + 1}</span>)),
     [text]
   );
 

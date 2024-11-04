@@ -9,6 +9,8 @@ import Register from './components/Register';
 import Login from './components/Login';
 import { AuthProvider } from './components/AuthContext';
 import Logout from './components/Logout';
+import Playground from './components/Playground';
+import Chatbot from './pages/Chatbot';
 
 const App = () => {
   return (
@@ -22,6 +24,8 @@ const App = () => {
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
         <Route path="/logout" element={<Logout />} />
+        <Route path="/playground" element={<Playground />} />
+        <Route path="/chatbot" element={<Chatbot />} />
       </Routes>
     </Router>
     </AuthProvider>
